@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block title %} O‘zbekiston va dunyoning eng muhim
+yangiliklari daryo.uz saytida {% endblock title %} {% block content %}
+<div class="main">
+    <div class="container">
+        <h1>My Nlog</h1>
+        {% for post in posts %}
+        <h2>
+            <a href="{{post.get_absolute_url}}"> {{post.title}} </a>
+        </h2>
+        <p>Published {{post.publish}} by {{post.author}}</p>
+        <div class="text">
+            <p>{{post.body|truncatewords:30|linebreaks}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
